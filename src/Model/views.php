@@ -43,21 +43,4 @@ class Views
         $this->movie->setLikes($this->movie->getLikes() + 1);
     }
 
-    // public function getViewer()
-    // {
-    //     return $this->viwer;
-    // }
-    // public function setViewer($viewer)
-    // {
-    //     $this->viwer = $viewer;
-    // }
-
-    // public function getMovie()
-    // {
-    //     return $this->movie;
-    // }
-    // public function setMovie($movie)
-    // {
-    //     $this->movie = $movie;
-    // }
 }
