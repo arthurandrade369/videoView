@@ -17,13 +17,7 @@ class Grasshopper extends People
     {
         $this->setExp($this->getExp() + 0.25);
     }
-
-    //Useless function
-    // private function watchedMore()
-    // {
-    //     $this->setTotalViews($this->getTotalViews() + 1);
-    // }
-
+    
     public function getLogin()
     {
         return $this->login;
