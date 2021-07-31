@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['loggedin'])) {
-    header("Location: ../src/View/home.php");
-}
-?>
-
 <html>
 
 <head>
@@ -14,21 +7,32 @@ if (isset($_SESSION['loggedin'])) {
 </head>
 
 <body>
-    <div class="login">
-        <h1>Login</h1>
-        <form action="../src/Controller/authenticate.php" method="post">
+    <div class="register">
+        <h1>Register</h1>
+        <form action="../src/Controller/registration.php" method="post">
             <label for="username">
                 <i class="fas fa-user"></i>
             </label>
             <input type="text" name="username" placeholder="Username" id="username" required>
+
+            <label for="email">
+                <i class="fas fa-at"></i>
+            </label>
+            <input type="text" name="email" placeholder="E-mail" id="email" required>
+
             <label for="password">
                 <i class="fas fa-lock"></i>
             </label>
             <input type="password" name="password" placeholder="Password" id="password" required>
-            <input type="submit" value="Login">
-        </form>
-        <form action="./newAccount.php">
+
+            <label for="password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="confirmPassword" placeholder="Confirm password" id="confirmPassword" required>
             <input type="submit" value="Register">
+        </form>
+        <form action="./index.php">
+            <input type="submit" value="Voltar">
         </form>
     </div>
 

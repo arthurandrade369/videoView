@@ -1,6 +1,6 @@
 <?php
 define('local', 'localhost');
-define('db', 'bank');
+define('db', 'youtube');
 define('user', 'root');
 define('password', '12345');
 define('DB_CHARSET', 'utf8mb4_general_ci');
