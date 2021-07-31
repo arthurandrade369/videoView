@@ -17,7 +17,6 @@
     $p[0] = new Grasshopper("Jonas", 36, "M", "jonas123");
     $p[1] = new Grasshopper("João", 32, "M", "joao123");
     $p[2] = new Grasshopper("Maria", 28, "F", "maria123");
-    //print_r($p[0]);
 
     $vws[0] = new Views($p[0], $v[0]);
     $vws[1] = new Views($p[0], $v[1]);
