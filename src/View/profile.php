@@ -3,11 +3,11 @@ require_once("../../config/connection-db.php");
 session_start();
 
 if (!isset($_SESSION['loggedin'])) {
-    header("Location: ../../public/index.html");
+    header("Location: ../../public/index.php");
     exit;
 }
 
-$sql = "SELECT password, email FROM login WHERE id = :id";
+$sql = "SELECT email FROM login WHERE id = :id";
 $p_sql = Connection::getInstance()->prepare($sql);
 $p_sql->bindValue("id", $_SESSION['id']);
 $p_sql->execute();
@@ -19,7 +19,6 @@ $p_sql = null;
 <head>
     <meta charset="utf-8">
     <title>Profile Page</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 </head>
 
@@ -40,10 +39,6 @@ $p_sql = null;
                 <tr>
                     <td>Username:</td>
                     <td><?= $_SESSION['name'] ?></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><?= $aws['password'] ?></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
