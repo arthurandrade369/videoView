@@ -13,7 +13,7 @@ if ($p_sql = Connection::getInstance()->prepare($sql)) {
     $p_sql->execute();
     if ($p_sql->rowCount() > 0) {
         $aws = $p_sql->fetch();
-        if (password_verify($_POST['password'], $aws['password'])) {
+        if (md5($_POST['password'] === md5($aws['password']))) {
             session_regenerate_id();
             $_SESSION['loggedin'] = true;
             $_SESSION['name'] = $_POST['username'];
