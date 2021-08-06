@@ -11,17 +11,13 @@ class Authenticate
 
     static function auth($email, $password)
     {
-        $sql = "SELECT id, password FROM login WHERE email = :email";
+        $sql = "SELECT id, password FROM login WHERE email = :email AND password = :password";
         $p_sql = Connection::getInstance()->prepare($sql);
         $p_sql->bindValue(":email", $email);
+        $p_sql->bindValue(":password", $password);
         $p_sql->execute();
         if ($p_sql->rowCount() > 0) {
             $aws = $p_sql->fetch();
-            if (md5($password) === $aws['password']) {
-                return true;
-            } else {
-                return false;
-            }
         } else {
             return false;
         }
