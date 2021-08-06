@@ -12,7 +12,7 @@ class Views
         $this->movie = $movie;
         $this->movie->setViews($this->movie->getViews() + 1);
         $this->viewer->setTotalViews($this->viewer->getTotalViews() + 1);
-        $this->viewer->earnExp();
+        $this->viewer->earnExp($movie);
     }
 
     public function rate()

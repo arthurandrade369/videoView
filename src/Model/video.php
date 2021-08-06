@@ -9,6 +9,7 @@ class Video implements AcessVideo
     private $views;
     private $likes;
     private $reproducing;
+    private $time;
 
     function __construct($title)
     {
@@ -84,5 +85,14 @@ class Video implements AcessVideo
     public function setReproducing($reproducing)
     {
         $this->reproducing = $reproducing;
+    }
+
+    public function getTime()
+    {
+        return $this->time;
+    }
+    public function setTime($time)
+    {
+        $this->time = $time;
     }
 }

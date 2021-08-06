@@ -4,6 +4,11 @@ require_once ("../../config/connection-db.php");
 
 class Authenticate
 {
+    public function __construct()
+    {
+        //
+    }
+
     static function auth($email, $password)
     {
         $sql = "SELECT id, password FROM login WHERE email = :email";

@@ -27,11 +27,19 @@ if (!isset($_SESSION['loggedin'])) {
     <div class="content">
         <h2>Profile Page</h2>
         <div>
-            <p>Your account details are below:</p>
+            <p>Detalhes da sua conta abaixo:</p>
             <table>
                 <tr>
                     <td>Email:</td>
                     <td><?= $_SESSION['email'] ?></td>
+                </tr>
+                <tr>
+                    <td>Nome:</td>
+                    <td><?= 'The Great' ?></td>
+                </tr>
+                <tr>
+                    <td>Idade:</td>
+                    <td><?= '20' ?></td>
                 </tr>
             </table>
         </div>

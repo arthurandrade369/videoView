@@ -4,15 +4,20 @@ require_once '../../config/connection-db.php';
 
 class Signup
 {
+    public function __construct()
+    {
+        //
+    }
+
     static function signup(Login $login,$confirmPassword)
     {
         $sql = "SELECT email FROM login WHERE email = :email";
         $p_sql = Connection::getInstance()->prepare($sql);
         $p_sql->bindValue('email', $login->getEmail());
         $p_sql->execute();
+        
         if ($p_sql->rowCount() > 0) {
-            echo "Email already exist!";
-            exit;
+            exit("Email ja existe!");
         }
 
         if ($login->getPassword() === $confirmPassword) {
@@ -25,8 +30,7 @@ class Signup
             $p_sql->execute();
             header("Location: ../../public/index");
         } else {
-            echo "Passwords arent equal!";
-            exit;
+            exit("Senhas não são iguais!");
         }
     }
 }

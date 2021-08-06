@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['loggedin'])) {
+    header("Location: ../src/View/home.php");
+    exit;
+}
+?>
+
 <html>
 
 <head>

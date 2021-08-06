@@ -2,6 +2,7 @@
 session_start();
 if (isset($_SESSION['loggedin'])) {
     header("Location: ../src/View/home.php");
+    exit;
 }
 ?>
 
@@ -20,7 +21,7 @@ if (isset($_SESSION['loggedin'])) {
             <label for="email">
                 <i class="fas fa-user"></i>
             </label>
-            <input type="text" name="email" placeholder="email" id="email" required>
+            <input type="text" name="email" placeholder="Email" id="email" required>
             <label for="password">
                 <i class="fas fa-lock"></i>
             </label>
@@ -28,7 +29,7 @@ if (isset($_SESSION['loggedin'])) {
             <input type="submit" value="Login">
         </form>
         <form action="./newAccount.php">
-            <input type="submit" value="Register">
+            <input type="submit" value="Registrar-se">
         </form>
     </div>
 
