@@ -6,13 +6,6 @@ if (!isset($_SESSION['loggedin'])) {
     header("Location: ../../public/index.php");
     exit;
 }
-
-$sql = "SELECT email FROM login WHERE id = :id";
-$p_sql = Connection::getInstance()->prepare($sql);
-$p_sql->bindValue("id", $_SESSION['id']);
-$p_sql->execute();
-$aws = $p_sql->fetch();
-$p_sql = null;
 ?>
 <html>
 
@@ -37,12 +30,8 @@ $p_sql = null;
             <p>Your account details are below:</p>
             <table>
                 <tr>
-                    <td>Username:</td>
-                    <td><?= $_SESSION['name'] ?></td>
-                </tr>
-                <tr>
                     <td>Email:</td>
-                    <td><?= $aws['email'] ?></td>
+                    <td><?= $_SESSION['email'] ?></td>
                 </tr>
             </table>
         </div>

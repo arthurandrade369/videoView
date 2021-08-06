@@ -9,12 +9,7 @@
 <body>
     <div class="register">
         <h1>Register</h1>
-        <form action="../src/Controller/registration.php" method="post">
-            <label for="username">
-                <i class="fas fa-user"></i>
-            </label>
-            <input type="text" name="username" placeholder="Username" id="username" required>
-
+        <form action="../src/Controller/signupController.php" method="post">
             <label for="email">
                 <i class="fas fa-at"></i>
             </label>

@@ -16,11 +16,11 @@ if (isset($_SESSION['loggedin'])) {
 <body>
     <div class="login">
         <h1>Login</h1>
-        <form action="../src/Controller/authenticate.php" method="post">
-            <label for="username">
+        <form action="../src/Controller/authenticateController.php" method="post">
+            <label for="email">
                 <i class="fas fa-user"></i>
             </label>
-            <input type="text" name="username" placeholder="Username" id="username" required>
+            <input type="text" name="email" placeholder="email" id="email" required>
             <label for="password">
                 <i class="fas fa-lock"></i>
             </label>
