@@ -31,7 +31,7 @@ if (!isset($_SESSION['loggedin'])) {
             <table>
                 <tr>
                     <td>Nome:</td>
-                    <td><?= $_SESSION['name'] ?></td>
+                    <td><?= $_SESSION['fname'] . " " . $_SESSION['lname'] ?></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
@@ -39,7 +39,7 @@ if (!isset($_SESSION['loggedin'])) {
                 </tr>
                 <tr>
                     <td>Idade:</td>
-                    <td><?= $_SESSION['age'] ?></td>
+                    <td><?= $_SESSION['age'] . " anos" ?></td>
                 </tr>
             </table>
         </div>

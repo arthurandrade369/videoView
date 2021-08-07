@@ -49,23 +49,19 @@ class User
 
     function __construct()
     {
-        $this->id = intval(mt_rand(100,999));
     }
 
     public function getId(): ?int
     {
         return $this->id;
     }
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
     public function getFName(): ?string
     {
         return $this->fname;
     }
-    public function setFName($fname)
+
+    public function setFName(string $fname)
     {
         $this->fname = $fname;
     }
@@ -74,7 +70,8 @@ class User
     {
         return $this->lname;
     }
-    public function setLName($lname)
+
+    public function setLName(string $lname)
     {
         $this->lname = $lname;
     }
@@ -83,7 +80,8 @@ class User
     {
         return $this->birthday;
     }
-    public function setBirthday($birthday)
+
+    public function setBirthday(string $birthday)
     {
         $this->birthday = $birthday;
     }
@@ -92,7 +90,8 @@ class User
     {
         return $this->email;
     }
-    public function SetEmail($email)
+
+    public function SetEmail(string $email)
     {
         $this->email = $email;
     }
@@ -101,7 +100,8 @@ class User
     {
         return $this->password;
     }
-    public function setPassword($password)
+
+    public function setPassword(string $password)
     {
         $this->password = $password;
     }
@@ -110,6 +110,7 @@ class User
     {
         return $this->created;
     }
+
     public function setCreated($created)
     {
         $this->created = $created;
@@ -119,6 +120,7 @@ class User
     {
         return $this->modified;
     }
+
     public function setModified($modified)
     {
         $this->modified = $modified;
@@ -128,8 +130,23 @@ class User
     {
         return $this->enabled;
     }
-    public function setEnabled($enabled)
+
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    public function setObject($object) {
+        $this->setFName($object['fname']);
+        $this->setLName($object['lname']);
+        $this->setEmail($object['email']);
+        $this->setPassword($object['password']);
+        $this->setBirthday($object['birthday']);
+        $this->setCreated(date("Y-m-d"));
+        $this->setEnabled(true);  
+        
+        return $this;
     }
 }

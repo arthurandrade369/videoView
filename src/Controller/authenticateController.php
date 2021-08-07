@@ -15,9 +15,21 @@ $p_sql->execute();
 if ($p_sql->rowCount() > 0) {
     $aws = $p_sql->fetch();
     $_SESSION['loggedin'] = true;
-    $_SESSION['name'] = $aws['fname'] ." ". $aws['lname'];
+    $_SESSION['fname'] = $aws['fname'];
+    $_SESSION['lname'] = $aws['lname'];
     $_SESSION['email'] = $_POST['email'];
-    $_SESSION['age'] = date("Y-m-d") - $aws['birthday'];
+
+    //Calcula idade
+    $dataNasc = $aws['birthday'];
+    $dataNasc = explode('-', $dataNasc);
+    $_SESSION['age'] = date("Y") - $dataNasc[0];
+    if (date('m') < $dataNasc[1]) {
+        $_SESSION['age'] -= 1;
+    } elseif ((date('m') == $dataNasc[1]) && (date('d') <= $dataNasc[2])) {
+        $_SESSION['age'] -= 1;
+    }
+
+
     header("Location: ../View/home.php");
 } else {
     exit("Email or password are incorrect!");
