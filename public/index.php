@@ -21,7 +21,7 @@ if (isset($_SESSION['loggedin'])) {
             <label for="email">
                 <i class="fas fa-user"></i>
             </label>
-            <input type="text" name="email" placeholder="Email" id="email" required>
+            <input type="email" name="email" placeholder="Email" id="email" required>
             <label for="password">
                 <i class="fas fa-lock"></i>
             </label>

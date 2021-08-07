@@ -5,7 +5,6 @@ require_once("./acessVideo.php");
 class Video implements AcessVideo
 {
     private $title;
-    private $rating;
     private $views;
     private $likes;
     private $reproducing;
@@ -48,16 +47,6 @@ class Video implements AcessVideo
     public function setTitle($title)
     {
         $this->title = $title;
-    }
-
-    public function getRating()
-    {
-        return $this->rating;
-    }
-    public function setRating($rating)
-    {
-        $average = ($this->rating + $rating)/$this->views;
-        $this->rating = number_format($average,2);
     }
 
     public function getViews()

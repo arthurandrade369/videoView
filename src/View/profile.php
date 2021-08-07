@@ -30,16 +30,16 @@ if (!isset($_SESSION['loggedin'])) {
             <p>Detalhes da sua conta abaixo:</p>
             <table>
                 <tr>
+                    <td>Nome:</td>
+                    <td><?= $_SESSION['name'] ?></td>
+                </tr>
+                <tr>
                     <td>Email:</td>
                     <td><?= $_SESSION['email'] ?></td>
                 </tr>
                 <tr>
-                    <td>Nome:</td>
-                    <td><?= 'The Great' ?></td>
-                </tr>
-                <tr>
                     <td>Idade:</td>
-                    <td><?= '20' ?></td>
+                    <td><?= $_SESSION['age'] ?></td>
                 </tr>
             </table>
         </div>
