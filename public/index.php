@@ -1,11 +1,18 @@
 <?php
-session_start();
+require_once(__DIR__ . "/../src/Controller/UserController.php");
+
 if (isset($_SESSION['loggedin'])) {
     header("Location: ../src/View/home.php");
     exit;
 }
 if (isset($_REQUEST['send'])) {
-    
+    $auth = new UserController;
+    if($auth->authenticate($_POST['email'],$_POST['password'])){
+        header("Location: ../src/View/home.php");
+    } else {
+        echo "Email ou senha incorretos";
+    }
+    exit;
 }
 ?>
 
@@ -20,7 +27,7 @@ if (isset($_REQUEST['send'])) {
 <body>
     <div class="login">
         <h1>Login</h1>
-        <form action="../src/Controller/authenticateController.php" method="post">
+        <form method="post">
             <label for="email">
                 <i class="fas fa-user"></i>
             </label>

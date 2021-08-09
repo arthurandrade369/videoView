@@ -1,11 +1,12 @@
 <?php
 require_once("../../config/connection-db.php");
-session_start();
+require_once("../Controller/UserController.php");
 
 if (!isset($_SESSION['loggedin'])) {
     header("Location: ../../public/index.php");
     exit;
 }
+$age = new UserController;
 ?>
 <html>
 
@@ -31,15 +32,15 @@ if (!isset($_SESSION['loggedin'])) {
             <table>
                 <tr>
                     <td>Nome:</td>
-                    <td><?= $_SESSION['fname'] . " " . $_SESSION['lname'] ?></td>
+                    <td><?= $_SESSION['user']['fname'] . " " . $_SESSION['user']['lname'] ?></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
-                    <td><?= $_SESSION['email'] ?></td>
+                    <td><?= $_SESSION['user']['email'] ?></td>
                 </tr>
                 <tr>
                     <td>Idade:</td>
-                    <td><?= $_SESSION['age'] . " anos" ?></td>
+                    <td><?= $age->getAge($_SESSION['user']['birthday']) . " anos" ?></td>
                 </tr>
             </table>
         </div>

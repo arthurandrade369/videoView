@@ -1,20 +1,24 @@
 <?php
 
-require_once("./Entity/user.php");
-require_once("../src/Controller/UserController.php");
+require_once(__DIR__ . "/../../src/Entity/User.php");
+require_once(__DIR__ . "/../../src/Controller/UserController.php");
 
-session_start();
 if (isset($_SESSION['loggedin'])) {
     header("Location: ../src/View/home.php");
     exit;
 }
 
 if (isset($_REQUEST['send'])) {
-    if ($_POST['password'] === $_POST['confirmPassword']) {
-        $user = new User();
-        $user->setObject($_POST);
-        $signup = new UserController();
-        $signup->signUp($user);
+    $signup = new UserController();
+    if ($signup->checkIsEmail($_POST['email'])) {
+        if ($_POST['password'] === $_POST['confirmPassword']) {
+            $user = new User();
+            $user->setObject($_POST);
+            $signup->signUp($user);
+            header("Location: ../../public/index.php");
+        }
+    }else{
+        echo "<h2>Email ja existe</h2>";
     }
 }
 
@@ -65,7 +69,7 @@ if (isset($_REQUEST['send'])) {
             <input type="submit" name="send" value="Register">
         </form>
 
-        <a href="./index.php"><button type="button">Voltar</button></a> 
+        <a href="../../public/index.php"><button type="button">Voltar</button></a>
     </div>
 
 </body>
