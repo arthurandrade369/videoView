@@ -1,6 +1,6 @@
 <?php
 
-require_once("../src/Entity/User.php");
+require_once("./Entity/user.php");
 require_once("../src/Controller/UserController.php");
 
 session_start();

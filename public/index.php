@@ -4,6 +4,9 @@ if (isset($_SESSION['loggedin'])) {
     header("Location: ../src/View/home.php");
     exit;
 }
+if (isset($_REQUEST['send'])) {
+    
+}
 ?>
 
 <html>
@@ -26,11 +29,9 @@ if (isset($_SESSION['loggedin'])) {
                 <i class="fas fa-lock"></i>
             </label>
             <input type="password" name="password" placeholder="Password" id="password" required>
-            <input type="submit" value="Login">
+            <input type="submit" name="send" value="Login">
         </form>
-        <form action="./newAccount.php">
-            <input type="submit" value="Registrar-se">
-        </form>
+        <a href="../src/View/newAccount.php"><button type="button">Registrar-se</button></a>
     </div>
 
 </body>
