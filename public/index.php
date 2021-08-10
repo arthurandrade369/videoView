@@ -7,10 +7,10 @@ if (isset($_SESSION['loggedin'])) {
 }
 if (isset($_REQUEST['send'])) {
     $auth = new UserController;
-    if($auth->authenticate($_POST['email'],$_POST['password'])){
+    if ($auth->authenticate($_POST['email'],$_POST['password'])) {
         header("Location: ../src/View/home.php");
     } else {
-        echo "Email ou senha incorretos";
+        echo "<h2>Email ou senha incorretos</h2>";
     }
     exit;
 }

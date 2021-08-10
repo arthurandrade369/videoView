@@ -40,7 +40,7 @@ $age = new UserController;
                 </tr>
                 <tr>
                     <td>Idade:</td>
-                    <td><?= $age->getAge($_SESSION['user']['birthday']) . " anos" ?></td>
+                    <td><?= $age->calculeAge($_SESSION['user']['birthday']) . " anos" ?></td>
                 </tr>
             </table>
         </div>

@@ -49,13 +49,13 @@ class UserController
         }
     }
 
-    public function getAge($birthday): int
+    public function calculeAge($birthday): int
     {
         $birthday = explode('-', $birthday);
         $age = date("Y") - $birthday[0];
         if (date('m') < $birthday[1]) {
             $age -= 1;
-        } elseif ((date('m') == $birthday[1]) && (date('d') <= $birthday[2])) {
+        } else if ((date('m') == $birthday[1]) && (date('d') <= $birthday[2])) {
             $age -= 1;
         }
 

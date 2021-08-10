@@ -16,9 +16,11 @@ if (isset($_REQUEST['send'])) {
             $user->setObject($_POST);
             $signup->signUp($user);
             header("Location: ../../public/index.php");
+        } else {
+            echo "<h2>Senhas não confere!</h2>";
         }
-    }else{
-        echo "<h2>Email ja existe</h2>";
+    } else {
+        echo "<h2>Email ja existe!</h2>";
     }
 }
 
